@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask
 from flask_restx import Api
 
 from app.config import Config
@@ -24,15 +24,15 @@ def configure_app(application: Flask):
     api.add_namespace(genre_ns)
 
 
-def create_data():
+def create_data(app):
     with app.app_context():
         db.create_all()
 
 
-if __name__ == '__main__':
+def start_app():
     app_config = Config()
     app = create_app(app_config)
 
     configure_app(app)
-    create_data()
-    app.run(debug=False)
+    create_data(app)
+    return app
