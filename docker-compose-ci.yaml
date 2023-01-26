@@ -2,6 +2,6 @@
 version: "3.10"
 services:
   app:
-    image: $IMAGE_TAG:$GITHUB_REF_NAME-$GITHUB_RUN_ID
+    image: ptokarev/hw_26:$GITHUB_REF_NAME-$GITHUB_RUN_ID
     ports:
       - 80:80
